@@ -32,10 +32,10 @@ const Footer: React.FC = () => {
           <h4 className="text-lg font-semibold mb-8 text-text-main">Quick Links</h4>
           <ul className="flex flex-col gap-3">
             {[
+              { label: 'Home', path: '/' },
               { label: 'About Us', path: '/about' },
               { label: 'Our Services', path: '/services' },
               { label: 'Gallery', path: '/gallery' },
-              { label: 'Testimonials', path: '/testimonials' },
               { label: 'Contact', path: '/contact' },
             ].map((link, idx) => (
               <li key={idx}>
