@@ -57,7 +57,7 @@ const Blog: React.FC = () => {
             <div className="flex flex-col gap-4">
               <div className="flex gap-2">
                 <input type="text" placeholder="Search articles..." className="flex-grow px-4 py-2 border border-gray-200 rounded-lg focus:border-primary outline-none transition-all" />
-                <Button variant="primary" size="sm" className="px-3 rounded-lg"><Search size={18} /></Button>
+                <Button variant="primary" size="sm" className="rounded-lg"><Search size={18} /></Button>
               </div>
             </div>
 

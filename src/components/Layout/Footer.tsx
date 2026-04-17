@@ -17,9 +17,12 @@ const Footer: React.FC = () => {
             Serving families with premium healthcare since 2010.
           </p>
           <div className="flex gap-4">
-            {[Instagram, Facebook, Twitter].map((Icon, idx) => (
-              <a key={idx} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-text-main transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-1">
-                <Icon size={20} />
+            {[
+              { icon: Instagram, link: 'https://www.instagram.com/coral_dental_care?igsh=eTlzdmkwZXUzZ2Nm' },
+              { icon: Facebook, link: 'https://www.facebook.com/coral.dentalcares' }
+            ].map((social, idx) => (
+              <a key={idx} href={social.link} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-text-main transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-1">
+                <social.icon size={20} />
               </a>
             ))}
           </div>

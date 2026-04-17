@@ -83,7 +83,7 @@ const FAQ: React.FC = () => {
           </div>
           
           <div className="flex justify-center">
-            <Button size="lg" className="px-12" onClick={() => window.location.href='/contact'}>
+            <Button size="lg" onClick={() => window.location.href='/contact'}>
               <Calendar size={20} />
               Visit Contact Page
             </Button>

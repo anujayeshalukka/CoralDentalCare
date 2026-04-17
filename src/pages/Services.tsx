@@ -120,7 +120,7 @@ const Services: React.FC = () => {
             {allServices.map((service, idx) => (
               <motion.div 
                 key={idx} 
-                className="group flex flex-col sm:flex-row gap-8 p-10 rounded-3xl bg-white border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 hover:border-primary-light"
+                className="group flex flex-col sm:flex-row gap-8 md:p-10 p-6 rounded-3xl bg-white border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 hover:border-primary-light"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -167,7 +167,7 @@ const Gallery: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white p-12 rounded-[40px] shadow-xl border border-gray-50 text-center">
+            <div className="bg-white md:p-12 p-6 rounded-[40px] shadow-xl border border-gray-50 text-center">
               <Camera size={48} className="text-primary mx-auto mb-6" />
               <h3 className="text-3xl font-heading font-bold mb-4">See Yourself Smiling</h3>
               <p className="text-text-muted mb-8 italic text-md">"Our gallery only tells half the story. The other half is the confidence you feel every time you look in the mirror."</p>

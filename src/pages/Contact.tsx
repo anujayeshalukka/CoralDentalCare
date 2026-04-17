@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
                       key={idx} 
                       variants={itemVariants}
                       whileHover={{ x: 5 }}
-                      className="group flex gap-6 p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
+                      className="group flex gap-6 md:p-6 p-3 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
                     >
                       <div className="w-14 h-14 rounded-2xl bg-brand-off flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                         <item.icon size={26} />
@@ -138,7 +138,7 @@ const Contact: React.FC = () => {
                         {Array.isArray(item.content) ? (
                           item.content.map((line, lIdx) => <p key={lIdx} className="text-text-muted text-sm leading-relaxed">{line}</p>)
                         ) : item.isLink ? (
-                          <a href={item.isLink} className="text-secondary font-medium hover:text-primary transition-colors block text-sm">{item.content}</a>
+                          <a href={item.isLink} className="text-text-muted hover:text-primary transition-colors block text-sm leading-relaxed">{item.content}</a>
                         ) : (
                           <p className="text-text-muted text-sm leading-relaxed">{item.content}</p>
                         )}
@@ -155,7 +155,7 @@ const Contact: React.FC = () => {
               className="relative"
             >
               <div className="absolute -inset-4 bg-primary/5 rounded-[40px] blur-2xl -z-10 group-hover:bg-primary/10 transition-colors" />
-              <div className="bg-white/80 backdrop-blur-xl p-8 md:p-12 rounded-[40px] shadow-2xl border border-white/50 relative overflow-hidden">
+              <div className="bg-white/80 backdrop-blur-xl py-8 px-4 md:p-12 rounded-[40px] shadow-2xl border border-white/50 relative overflow-hidden">
                 {/* Visual Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-10 -mt-10" />
 
@@ -172,7 +172,7 @@ const Contact: React.FC = () => {
                     <p className="text-text-muted text-lg mb-10 leading-relaxed max-w-sm mx-auto">
                       Your appointment is being processed. Our team will reach out shortly for confirmation.
                     </p>
-                    <Button variant="outline" onClick={() => setIsSubmitted(false)} className="px-10 border-2">Send Another Request</Button>
+                    <Button variant="outline" onClick={() => setIsSubmitted(false)} className="border-2">Send Another Request</Button>
                   </motion.div>
                 ) : (
                   <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
@@ -216,7 +216,7 @@ const Contact: React.FC = () => {
                         <label className="text-sm font-bold text-text-main flex items-center gap-2 px-1">
                           <Phone size={16} className="text-primary" /> Phone Number
                         </label>
-                        <div className="flex gap-3">
+                        <div className="flex flex-col sm:flex-row gap-3">
                           <CountrySelector 
                             selectedCountry={selectedCountry} 
                             onSelect={setSelectedCountry} 
@@ -283,7 +283,7 @@ const Contact: React.FC = () => {
                       </div>
                     </div>
 
-                    <Button type="submit" size="full" className="mt-6 py-4 shadow-lg shadow-primary/20 hover:shadow-primary/30" disabled={isSubmitting}>
+                    <Button type="submit" size="full" className="mt-6 shadow-lg shadow-primary/20 hover:shadow-primary/30" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -326,8 +326,8 @@ const Contact: React.FC = () => {
               { 
                 name: 'Instagram', 
                 icon: Instagram, 
-                username: '@coraldentalcare', 
-                link: 'https://instagram.com/coraldentalcare', 
+                username: '@coral_dental_care', 
+                link: 'https://www.instagram.com/coral_dental_care?igsh=eTlzdmkwZXUzZ2Nm', 
                 color: 'bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045]',
                 desc: 'See our patients smiles and dental tips.'
               },
@@ -335,7 +335,7 @@ const Contact: React.FC = () => {
                 name: 'Facebook', 
                 icon: Facebook, 
                 username: 'Coral Dental Care', 
-                link: 'https://facebook.com/coraldentalcare', 
+                link: 'https://www.facebook.com/coral.dentalcares', 
                 color: 'bg-[#1877F2]',
                 desc: 'Connect with our community and reviews.'
               },

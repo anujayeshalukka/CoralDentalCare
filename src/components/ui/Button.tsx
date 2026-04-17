@@ -21,10 +21,10 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
-    full: 'w-full py-3.5 px-6',
+    sm: 'px-6 py-2 text-[12px] md:text-sm',
+    md: 'px-10 py-3 text-[14px] md:text-base',
+    lg: 'px-10 py-4 text-base md:text-lg', 
+    full: 'w-full py-3.5 px-10 text-[14px] md:text-base',
   };
 
   return (

@@ -100,8 +100,8 @@ const Home: React.FC = () => {
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-normal leading-base mb-4">
-                Healthy Smiles for the <br />
-                <span className="text-primary font-bold">Whole Family</span>
+                Healthy Smiles for the 
+                <span className="text-primary font-bold"> Whole Family</span>
               </h1>
               
               <p className="text-sm sm:text-base md:text-lg text-white/90 mb-12 max-w-2xl leading-relaxed">
@@ -109,23 +109,23 @@ const Home: React.FC = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start">
-                <Button size="md" className="px-10 py-3 text-lg" onClick={() => setIsModalOpen(true)}>
+                <Button size="lg" onClick={() => setIsModalOpen(true)}>
                   <Calendar size={22} />
                   Book Appointment
                 </Button>
-                <Button variant="outline" size="lg" className="px-10 py-3 text-lg border-white text-white hover:bg-white/10" onClick={() => window.open(getDentistWhatsAppLink(), '_blank')}>
+                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" onClick={() => window.open(getDentistWhatsAppLink(), '_blank')}>
                   <MessageSquare size={22} />
                   Ask Dr. Saranya
                 </Button>
               </div>
 
-              <div className="flex flex-wrap justify-start gap-x-12 gap-y-6 mt-8 opacity-90">
-                <div className="flex items-center gap-3 font-medium text-sm md:text-base">
-                  <Star size={24} className="text-primary fill-primary" />
+              <div className="flex flex-wrap justify-start gap-x-6 md:gap-x-12 gap-y-2 md:gap-y-6 mt-8 opacity-90 text-white">
+                <div className="flex items-center gap-2 md:gap-3  font-medium text-[12px] md:text-[14px]">
+                  <Star size={18} className="text-primary fill-primary" />
                   <span>KDC Reg No: 16033</span>
                 </div>
-                <div className="flex items-center gap-3 font-medium text-sm md:text-base">
-                  <Shield size={24} className="text-primary" />
+                <div className="flex items-center gap-2 md:gap-3 font-medium text-[12px] md:text-[14px] ">
+                  <Shield size={18} className="text-primary" />
                   <span>Safe & Sterilized Env</span>
                 </div>
               </div>
@@ -144,12 +144,12 @@ const Home: React.FC = () => {
               { label: 'Successful Reconstructions', value: '10k+', icon: Smile },
               { label: 'Personalized Care Plans', value: '100%', icon: Zap },
             ].map((stat, idx) => (
-              <div key={idx} className="flex items-center justify-center gap-4 px-8 py-6 md:py-0">
+              <div key={idx} className="flex items-left md:items-center justify-left md:justify-center gap-4 px-8 py-3 md:py-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                   <stat.icon size={24} />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-text-main">{stat.value}</div>
+                  <div className="md:text-2xl text-xl font-bold text-text-main">{stat.value}</div>
                   <div className="text-sm text-text-muted font-medium">{stat.label}</div>
                 </div>
               </div>
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" onClick={() => setIsModalOpen(true)}>Book a Consultation</Button>
                 <div className="flex items-center gap-4 px-6 border-l border-gray-200 italic text-text-muted text-sm leading-tight">
-                  Supported by a team of <br /> expert guest specialists.
+                  Supported by a team of <br className="hidden md:block" /> expert guest specialists.
                 </div>
               </div>
             </div>
@@ -286,7 +286,7 @@ const Home: React.FC = () => {
               Signature Expertise
             </div>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Full Mouth <span className="text-primary">Aesthetic Reconstructions</span></h2>
-            <p className="text-lg text-white/70 mb-10 leading-relaxed text-justify">
+            <p className="text-md md:text-lg text-white/70 mb-10 leading-relaxed text-justify">
               Dr. Saranya S specializes in complex reconstructions that restore both function and beauty. Using AI-driven digital technology, we customize every smile transformation to match your unique facial features.
             </p>
             <div className="flex flex-col gap-6">
@@ -303,8 +303,9 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-12">
-                <Button size="lg" className="bg-primary text-white" onClick={() => navigate('/gallery')}>View Result Gallery</Button>
+            <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-start">
+                <Button size="lg" className="bg-primary text-white" onClick={() => navigate('/services')}>View All Treatments</Button>
+                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" onClick={() => navigate('/gallery')}>View Result Gallery</Button>
             </div>
           </motion.div>
           
@@ -350,7 +351,7 @@ const Home: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <Button size="lg" className="w-fit" onClick={() => navigate('/gallery')}>View Full Gallery</Button>
+              <Button size="lg" className="w-full sm:w-fit" onClick={() => navigate('/gallery')}>View Full Gallery</Button>
             </div>
           </div>
         </div>
@@ -359,20 +360,20 @@ const Home: React.FC = () => {
       {/* Enhanced Review Feed Section */}
       <section className="py-16 md:py-22 bg-brand-off border-t border-gray-200">
         <div className="container mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-16">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 mb-10 md:mb-16">
             <div>
               <h2 className="text-4xl font-heading font-bold mb-4">Patient Reviews</h2>
-              <div className="flex items-center gap-4">
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-primary fill-primary" />)}
+              <div className="flex items-center gap-2 md:gap-4">
+                <div className="flex gap-0.5 md:gap-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] text-primary fill-primary" />)}
                 </div>
-                <span className="font-bold text-text-main">4.9 / 5</span>
-                <span className="text-text-muted text-sm border-l border-gray-200 pl-4">Based on 100+ Google Reviews</span>
+                <span className="font-bold text-text-main text-sm md:text-base">4.9 / 5</span>
+                <span className="text-text-muted text-[10px] md:text-sm border-l border-gray-200 pl-2 md:pl-4">Based on 100+ Google Reviews</span>
               </div>
             </div>
             <div className="flex items-center gap-3 py-2 px-6 bg-white border border-gray-200 rounded-full shadow-sm">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-5 h-5" />
-              <span className="font-bold text-sm text-text-muted uppercase tracking-widest">Live Reviews</span>
+              <span className="font-bold text-[12px] md:text-sm text-text-muted uppercase tracking-widest">Live Reviews</span>
             </div>
           </div>
           
@@ -381,12 +382,12 @@ const Home: React.FC = () => {
               <motion.div 
                 key={idx}
                 whileHover={{ y: -5 }}
-                className="bg-white p-10 rounded-3xl border border-gray-200 shadow-sm relative"
+                className="bg-white p-6 md:p-10 rounded-3xl border border-gray-200 shadow-sm relative"
               >
                 <div className="flex gap-1 mb-6">
                   {[...Array(rev.rating)].map((_, i) => <Star key={i} size={14} className="text-primary fill-primary" />)}
                 </div>
-                <div className="absolute top-10 right-10 text-brand-off">
+                <div className="absolute top-6 md:top-10 right-10 text-brand-off">
                   <Quote size={40} className="fill-current" />
                 </div>
                 <p className="text-text-muted italic mb-8 leading-relaxed text-md">"{rev.text}"</p>
@@ -442,7 +443,7 @@ const Home: React.FC = () => {
                 <Sparkles size={14} className="text-primary" />
                 <span>Join 10,000+ Happy Patients</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 leading-tight">
+              <h2 className="text-4xl md:text-6xl font-heading font-bold md:mb-8 mb-4 leading-tight">
                 Life is better with a <br />
                 <span className="text-primary">Healthy Smile.</span>
               </h2>
@@ -475,7 +476,7 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 md:p-14 rounded-[40px] shadow-2xl relative overflow-hidden group"
+              className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 md:p-14 rounded-[40px] shadow-2xl relative overflow-hidden group"
             >
               {/* Decorative Glow */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-[80px] group-hover:bg-primary/30 transition-colors" />
@@ -486,7 +487,7 @@ const Home: React.FC = () => {
               <div className="flex flex-col gap-6">
                 <Button 
                   size="lg" 
-                  className="!bg-primary !text-white hover:!bg-primary-dark h-16 text-lg group shadow-xl hover:shadow-primary/20 transition-all"
+                  className="!bg-primary !text-white hover:!bg-primary-dark h-16 group shadow-xl hover:shadow-primary/20 transition-all"
                   onClick={() => setIsModalOpen(true)}
                 >
                   Book Consultation
@@ -499,7 +500,7 @@ const Home: React.FC = () => {
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="w-full border-white/20 text-white hover:bg-white/10 h-16 text-lg justify-start px-8 group"
+                    className="w-full border-white/20 text-white hover:bg-white/10 h-16 justify-start px-8 group"
                     onClick={() => window.open(getWhatsAppLink(), '_blank')}
                   >
                     <MessageSquare size={22} className="mr-3" />

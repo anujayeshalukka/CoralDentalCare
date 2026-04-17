@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { User, Mail, Phone, Calendar, Send, CheckCircle, MessageSquare } from 'lucide-react';
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
+import CountrySelector from '../ui/CountrySelector';
+import { countries } from '../../utils/countryData';
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -19,6 +21,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
     date: '',
     message: ''
   });
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,7 +35,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
     formDataToSubmit.append('access_key', '1c28bba5-4277-4918-9395-facce221879b');
     formDataToSubmit.append('name', formData.name);
     formDataToSubmit.append('email', formData.email);
-    formDataToSubmit.append('phone', formData.phone);
+    formDataToSubmit.append('phone', `${selectedCountry.dialCode} ${formData.phone}`);
     formDataToSubmit.append('service', formData.service);
     formDataToSubmit.append('date', formData.date);
     formDataToSubmit.append('message', formData.message);
@@ -97,39 +100,44 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   onChange={handleChange}
                   required
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 bg-brand-off border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                  className="w-full px-5 py-4 bg-brand-off/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white outline-none transition-all duration-300 placeholder:text-gray-400"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-bold text-text-main flex items-center gap-2">
-                    <Mail size={16} className="text-primary" />
-                    Email
-                  </label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 bg-brand-off border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+              <div className="flex flex-col gap-1.5">
+                <label className="text-sm font-bold text-text-main flex items-center gap-2">
+                  <Mail size={16} className="text-primary" />
+                  Email
+                </label>
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="john@example.com"
+                  className="w-full px-5 py-4 bg-brand-off/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white outline-none transition-all duration-300 placeholder:text-gray-400"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-sm font-bold text-text-main flex items-center gap-2">
+                  <Phone size={16} className="text-primary" />
+                  Phone Number
+                </label>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <CountrySelector 
+                    selectedCountry={selectedCountry} 
+                    onSelect={setSelectedCountry} 
                   />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-bold text-text-main flex items-center gap-2">
-                    <Phone size={16} className="text-primary" />
-                    Phone
-                  </label>
                   <input 
                     type="tel" 
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    placeholder="+91 00000 00000"
-                    className="w-full px-4 py-3 bg-brand-off border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="Your Number"
+                    className="flex-1 px-5 py-4 bg-brand-off/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white outline-none transition-all duration-300 placeholder:text-gray-400"
                   />
                 </div>
               </div>
@@ -141,7 +149,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-brand-off border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full px-5 py-4 bg-brand-off/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white outline-none transition-all duration-300 appearance-none cursor-pointer"
                   >
                     <option>General Dentistry</option>
                     <option>Root Canal Treatment</option>
@@ -162,7 +170,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                     value={formData.date}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-brand-off border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    className="w-full px-5 py-4 bg-brand-off/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white outline-none transition-all duration-300"
                   />
                 </div>
               </div>
@@ -178,7 +186,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   onChange={handleChange}
                   rows={3}
                   placeholder="Tell us about your concern..."
-                  className="w-full px-4 py-3 bg-brand-off border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
+                  className="w-full px-5 py-4 bg-brand-off/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white outline-none transition-all duration-300 resize-none placeholder:text-gray-400"
                 />
               </div>
             </div>
@@ -186,7 +194,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
             <Button 
               type="submit" 
               size="full" 
-              className="mt-2 h-14 text-lg"
+              className="mt-2"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Sending Request...' : 'Confirm Appointment'}
