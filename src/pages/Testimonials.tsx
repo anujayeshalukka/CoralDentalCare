@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, Search, Filter } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
+import Button from '../components/ui/Button';
 
 const Testimonials: React.FC = () => {
   const allTestimonials = [
@@ -62,9 +63,9 @@ const Testimonials: React.FC = () => {
           <div className="flex flex-col gap-1 items-center">
             <div className="text-4xl font-bold text-primary">4.9/5</div>
             <div className="flex gap-0.5 my-1">
-              {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-primary fill-primary" />)}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] text-primary fill-primary" />)}
             </div>
-            <p className="text-text-muted font-bold text-xs uppercase tracking-widest leading-none mt-1">Google Rating</p>
+            <p className="text-text-muted font-bold text-[10px] md:text-xs uppercase tracking-widest leading-none mt-1">Google Rating</p>
           </div>
           <div className="hidden md:block w-px h-16 bg-gray-200" />
           <div className="flex flex-col gap-1 items-center">
@@ -96,7 +97,7 @@ const Testimonials: React.FC = () => {
                     <Quote size={20} />
                   </div>
                   <div className="flex gap-0.5">
-                    {[...Array(t.rating)].map((_, i) => <Star key={i} size={16} className="text-primary fill-primary" />)}
+                    {[...Array(t.rating)].map((_, i) => <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 text-primary fill-primary" />)}
                   </div>
                 </div>
                 <p className="text-lg leading-relaxed text-text-muted italic mb-10 flex-grow text-[15px]">"{t.comment}"</p>
@@ -123,8 +124,21 @@ const Testimonials: React.FC = () => {
             <p className="text-lg text-text-muted">Your feedback helps us grow and serve you better.</p>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a href="https://google.com/search?q=Coral+Dental+Care+Puliyanm" target="_blank" className="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark transition-all transform hover:-translate-y-1 shadow-md">Write a Google Review</a>
-            <a href="mailto:feedback@coraldental.com" className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 shadow-md">Send Private Feedback</a>
+            <Button 
+              size="lg" 
+              onClick={() => window.open('https://google.com/search?q=Coral+Dental+Care+Puliyanm', '_blank')}
+              className="shadow-md"
+            >
+              Write a Google Review
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={() => window.location.href = 'mailto:feedback@coraldental.com'}
+              className="shadow-md border-primary text-primary hover:bg-primary hover:text-white"
+            >
+              Send Private Feedback
+            </Button>
           </div>
         </div>
       </section>

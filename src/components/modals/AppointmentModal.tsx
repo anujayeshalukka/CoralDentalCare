@@ -84,7 +84,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="text-center mb-2">
-              <p className="text-text-muted">Fill out the form below and we'll get back to you immediately.</p>
+              <p className="text-text-muted text-left">Fill out the form below and we'll get back to you immediately.</p>
             </div>
             
             <div className="grid grid-cols-1 gap-5">
