@@ -3,11 +3,13 @@ import { Mail, Phone, MapPin, Clock, Send, Calendar, User, MessageSquare, Instag
 import { motion } from 'framer-motion';
 import Button from '../components/ui/Button';
 import PageHero from '../components/ui/PageHero';
+import SEO from '../components/ui/SEO';
 import contactBg from '../assets/heroes/contact.png';
 import MapSection from '../components/ui/MapSection';
 import CountrySelector from '../components/ui/CountrySelector';
 import { countries } from '../utils/countryData';
 import { getWhatsAppLink } from '../utils/whatsapp';
+import { CONTACT_INFO } from '../constants/contactInfo';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -31,26 +33,30 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formDataToSubmit = new FormData();
-    formDataToSubmit.append('access_key', '1c28bba5-4277-4918-9395-facce221879b');
-    formDataToSubmit.append('name', formData.name);
-    formDataToSubmit.append('email', formData.email);
-    formDataToSubmit.append('phone', `${selectedCountry.dialCode} ${formData.phone}`);
-    formDataToSubmit.append('service', formData.service);
-    formDataToSubmit.append('date', formData.date);
-    formDataToSubmit.append('message', formData.message);
-    formDataToSubmit.append('subject', `New Appointment Request from ${formData.name}`);
-    formDataToSubmit.append('from_name', 'Coral Dental Care Website');
+    const formDataToSubmit = {
+      name: formData.name,
+      email: formData.email,
+      phone: `${selectedCountry.dialCode} ${formData.phone}`,
+      service: formData.service,
+      date: formData.date,
+      message: formData.message,
+      _subject: `New Appointment Request from ${formData.name}`,
+      _template: 'table'
+    };
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_INFO.submissionEmail}`, {
         method: 'POST',
-        body: formDataToSubmit
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formDataToSubmit)
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (data.success === "true") {
         setIsSubmitted(true);
         window.scrollTo({ top: 300, behavior: 'smooth' });
       } else {
@@ -84,6 +90,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="overflow-hidden bg-brand-white relative">
+      <SEO 
+        title="Contact Us & Book Appointment" 
+        description="Book your dental appointment at Coral Dental Care Kerala. Contact us via phone, WhatsApp, or email for specialized dental care in Puliyanam." 
+      />
       {/* Background Decorative Elements */}
       <div className="absolute top-[20%] -left-20 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[20%] -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
@@ -119,10 +129,10 @@ const Contact: React.FC = () => {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
                   {[
-                    { icon: MapPin, title: 'Location', content: 'Above State Bank of India, Pereppadan Towers, Puliyanm, Kerala – 683572' },
-                    { icon: Phone, title: 'Phone', content: '+91 97476 12370', isLink: 'tel:+919747612370' },
-                    { icon: Mail, title: 'Email', content: 'info@coraldental.com', isLink: 'mailto:info@coraldental.com' },
-                    { icon: Clock, title: 'Working Hours', content: ['Mon - Sat: 9:00 AM - 7:00 PM', 'Sunday: Emergency Only'] },
+                    { icon: MapPin, title: 'Location', content: CONTACT_INFO.address },
+                    { icon: Phone, title: 'Phone', content: CONTACT_INFO.phone, isLink: CONTACT_INFO.phoneLink },
+                    { icon: Mail, title: 'Email', content: CONTACT_INFO.email, isLink: `mailto:${CONTACT_INFO.email}` },
+                    { icon: Clock, title: 'Working Hours', content: [CONTACT_INFO.workingHours.weekdays, CONTACT_INFO.workingHours.sunday] },
                   ].map((item, idx) => (
                     <motion.div 
                       key={idx} 

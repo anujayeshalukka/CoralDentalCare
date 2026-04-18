@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Heart, Target, Star, CheckCircle } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
+import SEO from '../components/ui/SEO';
 import aboutBg from '../assets/about.webp';
 import founderImg from '../assets/team/founder.png';
 import interiorImg from '../assets/interior.jpg';
@@ -13,7 +14,7 @@ import maxilloDoctorImg from '../assets/team/doctor-maxillo.jpg';
 const About: React.FC = () => {
   const stats = [
     { label: 'Happy Patients', value: '10,000+' },
-    { label: 'Years of Excellence', value: '15+' },
+    { label: 'Years of Excellence', value: '5+' },
     { label: 'Guest Specialists', value: '5+' },
     { label: 'Successful Procedures', value: '5k+' },
   ];
@@ -57,6 +58,10 @@ const About: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
+      <SEO 
+        title="About Dr. Saranya S & Coral Dental" 
+        description="Learn about the vision of Dr. Saranya S and our commitment to clinical excellence at Coral Dental Care Kerala. Over 15 years of surgical expertise." 
+      />
       <PageHero
         title="Leadership at"
         highlight="Coral Dental"
@@ -76,7 +81,7 @@ const About: React.FC = () => {
               Founded by Dr. Saranya S, Coral Dental Care was established to provide a superior dental experience where clinical expertise meets personalized, compassionate care. Her mission was to create a clinic where every patient is treated like family.
             </p>
             <p className="text-lg text-text-muted leading-relaxed text-justify">
-              With over 15 years of excellence, the clinic has become a hub for specialized treatments, from painless root canals to complex aesthetic reconstructions, all delivered with the highest standards of sterilization and patient comfort.
+              Since its establishment, the clinic has become a hub for specialized treatments, from painless root canals to complex aesthetic reconstructions, all delivered with the highest standards of sterilization and patient comfort.
             </p>
 
             <div className="flex flex-col gap-8 mt-6">
@@ -101,7 +106,7 @@ const About: React.FC = () => {
             </div>
             <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-xl z-20 border border-gray-50 flex flex-col items-center gap-2">
               <span className="text-4xl font-bold text-primary">15+</span>
-              <span className="text-xs font-bold text-text-muted uppercase tracking-widest text-center leading-tight">Years OF<br />Experience</span>
+              <span className="text-xs font-bold text-text-muted uppercase tracking-widest text-center leading-tight">Years OF clinical<br />Experience</span>
             </div>
             {/* Background Shape */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full z-0 blur-2xl" />

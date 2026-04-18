@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Calendar, Mail, MapPin } from 'lucide-react';
 import AppointmentModal from '../modals/AppointmentModal';
-import logo from '../../assets/coraldentalcarelogo.png';
+import logo from '../../assets/logo.png';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

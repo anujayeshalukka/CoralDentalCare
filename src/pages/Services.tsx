@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Stethoscope, Smile, Baby, Star, CheckCircle, HeartPulse, Anchor, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
+import SEO from '../components/ui/SEO';
 import JawIcon from '../components/ui/JawIcon';
 import servicesBg from '../assets/heroes/services.png';
 
@@ -107,6 +108,10 @@ const Services: React.FC = () => {
 
   return (
     <div>
+      <SEO 
+        title="Our Specialized Dental Services" 
+        description="From painless root canals and orthodontics to dental implants and pediatric care. Explore our comprehensive range of specialized dental treatments." 
+      />
       <PageHero 
         title="Comprehensive" 
         highlight="Dental Services" 

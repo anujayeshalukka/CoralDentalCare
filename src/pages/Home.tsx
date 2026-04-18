@@ -15,6 +15,7 @@ import Accordion from '../components/ui/Accordion';
 import AppointmentModal from '../components/modals/AppointmentModal';
 import ParallaxEffect from '../components/ui/ParallaxEffect';
 import { getWhatsAppLink, getDentistWhatsAppLink } from '../utils/whatsapp';
+import SEO from '../components/ui/SEO';
 
 // Team Images
 import sectionBg from '../assets/about.webp'; // Using about.webp as a premium blurred background
@@ -66,6 +67,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="pt-0"> 
+      <SEO 
+        title="Best Dental Clinic in Kerala" 
+        description="Experience world-class dental care at Coral Dental Care Kerala. Led by Dr. Saranya S, we offer painless root canals, implants, and pediatric dentistry." 
+      />
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] flex flex-col overflow-hidden bg-text-main">
         {/* Background Video */}
@@ -140,7 +145,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-200">
             {/* Stat items with improved mobile spacing */}
             {[
-              { label: 'Founded by Dr. Saranya', value: 'Since 2010', icon: Award },
+              { label: 'Founded by Dr. Saranya', value: 'Since 2019', icon: Award },
               { label: 'Successful Reconstructions', value: '10k+', icon: Smile },
               { label: 'Personalized Care Plans', value: '100%', icon: Zap },
             ].map((stat, idx) => (

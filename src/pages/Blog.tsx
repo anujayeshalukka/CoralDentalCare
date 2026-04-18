@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
+import SEO from '../components/ui/SEO';
 import Button from '../components/ui/Button';
 
 const Blog: React.FC = () => {
@@ -44,6 +45,10 @@ const Blog: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Dental Tips & Education Blog" 
+        description="Stay informed about oral health, the latest dental technologies, and expert tips for a brighter smile from the team at Coral Dental Care." 
+      />
       <PageHero 
         title="Dental Tips &" 
         highlight="Education" 

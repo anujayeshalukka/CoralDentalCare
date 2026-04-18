@@ -4,6 +4,7 @@ import Modal from '../ui/Modal';
 import Button from '../ui/Button';
 import CountrySelector from '../ui/CountrySelector';
 import { countries } from '../../utils/countryData';
+import { CONTACT_INFO } from '../../constants/contactInfo';
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -31,26 +32,30 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formDataToSubmit = new FormData();
-    formDataToSubmit.append('access_key', '1c28bba5-4277-4918-9395-facce221879b');
-    formDataToSubmit.append('name', formData.name);
-    formDataToSubmit.append('email', formData.email);
-    formDataToSubmit.append('phone', `${selectedCountry.dialCode} ${formData.phone}`);
-    formDataToSubmit.append('service', formData.service);
-    formDataToSubmit.append('date', formData.date);
-    formDataToSubmit.append('message', formData.message);
-    formDataToSubmit.append('subject', `New Appointment Request from ${formData.name}`);
-    formDataToSubmit.append('from_name', 'Coral Dental Care Website');
+    const formDataToSubmit = {
+      name: formData.name,
+      email: formData.email,
+      phone: `${selectedCountry.dialCode} ${formData.phone}`,
+      service: formData.service,
+      date: formData.date,
+      message: formData.message,
+      _subject: `New Appointment Request from ${formData.name}`,
+      _template: 'table'
+    };
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_INFO.submissionEmail}`, {
         method: 'POST',
-        body: formDataToSubmit
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formDataToSubmit)
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (data.success === "true") {
         setIsSubmitted(true);
       } else {
         alert('Something went wrong. Please try again or call us directly.');

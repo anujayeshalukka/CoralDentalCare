@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import Button from '../components/ui/Button';
+import SEO from '../components/ui/SEO';
+import { CONTACT_INFO } from '../constants/contactInfo';
 
 const Testimonials: React.FC = () => {
   const allTestimonials = [
@@ -52,6 +54,10 @@ const Testimonials: React.FC = () => {
 
   return (
     <div className="pt-20 overflow-hidden">
+      <SEO 
+        title="Patient Reviews & Success Stories" 
+        description="Read what our patients have to say about their experience at Coral Dental Care Kerala. Over 2,500+ verified reviews with 4.9/5 Google rating." 
+      />
       <PageHero 
         title="Patient" 
         highlight="Reviews" 
@@ -134,7 +140,7 @@ const Testimonials: React.FC = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              onClick={() => window.location.href = 'mailto:feedback@coraldental.com'}
+              onClick={() => window.location.href = `mailto:${CONTACT_INFO.feedbackEmail}`}
               className="shadow-md border-primary text-primary hover:bg-primary hover:text-white"
             >
               Send Private Feedback

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, Clock } from 'lucide-react';
+import { CONTACT_INFO } from '../../constants/contactInfo';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ const Footer: React.FC = () => {
           </Link>
           <p className="text-text-muted mb-8 leading-relaxed">
             Providing expert dental care with a focus on comfort, precision, and trust. 
-            Serving families with premium healthcare since 2010.
+            Serving families with premium healthcare since 2019.
           </p>
           <div className="flex gap-4">
             {[
@@ -65,19 +66,19 @@ const Footer: React.FC = () => {
           <ul className="flex flex-col gap-4">
             <li className="flex gap-4 items-start text-text-muted">
               <MapPin size={20} className="text-primary flex-shrink-0" />
-              <span>Above State Bank of India,<br />Pereppadan Towers, Puliyanm,<br />Kerala – 683572</span>
+              <span>Above State Bank of India,<br />Pareppadan Towers, Puliyanam.<br />Kerala – 683572</span>
             </li>
             <li className="flex gap-4 items-center text-text-muted">
               <Phone size={20} className="text-primary flex-shrink-0" />
-              <a href="tel:+919747612370" className="hover:text-primary">+91 97476 12370</a>
+              <a href={CONTACT_INFO.phoneLink} className="hover:text-primary">{CONTACT_INFO.phone}</a>
             </li>
             <li className="flex gap-4 items-center text-text-muted">
               <Mail size={20} className="text-primary flex-shrink-0" />
-              <a href="mailto:info@coraldental.com" className="hover:text-primary">info@coraldental.com</a>
+              <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-primary">{CONTACT_INFO.email}</a>
             </li>
             <li className="flex gap-4 items-center text-text-muted">
               <Clock size={20} className="text-primary flex-shrink-0" />
-              <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+              <span>{CONTACT_INFO.workingHours.weekdays}</span>
             </li>
           </ul>
         </div>

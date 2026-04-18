@@ -1,10 +1,12 @@
 import React from 'react';
 import { HelpCircle, MessageSquare, Phone, Mail, Calendar } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
+import SEO from '../components/ui/SEO';
 import Accordion from '../components/ui/Accordion';
 import Button from '../components/ui/Button';
 import faqBg from '../assets/heroes/faq.png';
 import { getWhatsAppLink } from '../utils/whatsapp';
+import { CONTACT_INFO } from '../constants/contactInfo';
 
 const FAQ: React.FC = () => {
   const faqCategories = [
@@ -36,6 +38,10 @@ const FAQ: React.FC = () => {
 
   return (
     <div>
+      <SEO 
+        title="Frequently Asked Questions" 
+        description="Find answers to common questions about dental checkups, root canals, implants, and clinic policies at Coral Dental Care Kerala." 
+      />
       <PageHero 
         title="Frequently Asked" 
         highlight="Questions" 
@@ -69,9 +75,9 @@ const FAQ: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {[
-              { icon: Phone, title: 'Call Us', desc: 'Speak directly with our front desk.', contact: '+91 97476 12370', link: 'tel:+919747612370' },
+              { icon: Phone, title: 'Call Us', desc: 'Speak directly with our front desk.', contact: CONTACT_INFO.phone, link: CONTACT_INFO.phoneLink },
               { icon: MessageSquare, title: 'WhatsApp', desc: 'Quick chat for easy inquiries.', contact: 'Chat Now', link: getWhatsAppLink() },
-              { icon: Mail, title: 'Email Us', desc: 'Send us your detailed questions.', contact: 'info@coraldental.com', link: 'mailto:info@coraldental.com' },
+              { icon: Mail, title: 'Email Us', desc: 'Send us your detailed questions.', contact: CONTACT_INFO.email, link: `mailto:${CONTACT_INFO.email}` },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-10 rounded-3xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group">
                 <item.icon size={44} className="text-primary mx-auto mb-6 group-hover:scale-110 transition-transform" />

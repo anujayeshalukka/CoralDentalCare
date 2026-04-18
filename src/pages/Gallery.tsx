@@ -4,6 +4,7 @@ import { Camera, Sparkles, Building2, Stethoscope, CheckCircle, ArrowRight } fro
 import PageHero from '../components/ui/PageHero';
 import ComparisonSlider from '../components/ui/ComparisonSlider';
 import Button from '../components/ui/Button';
+import SEO from '../components/ui/SEO';
 import AppointmentModal from '../components/modals/AppointmentModal';
 import galleryBg from '../assets/heroes/galleryhero.jpg';
 
@@ -58,6 +59,10 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
+      <SEO 
+        title="Smile Transformation Gallery" 
+        description="See real before and after results of our dental treatments. From smile makeovers to dental implants, witness the excellence of Coral Dental Care." 
+      />
       <PageHero 
         title="Our Clinical" 
         highlight="Excellence" 
