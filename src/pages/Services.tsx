@@ -12,6 +12,8 @@ import orthoDoctorImg from '../assets/team/doctor-ortho.jpg';
 import implantDoctorImg from '../assets/team/doctor-implat1.jpeg';
 import endoDoctorImg from '../assets/team/doctor-endo.jpg';
 import maxilloDoctorImg from '../assets/team/doctor-maxillo.jpg';
+import prosthoDoctorImg from '../assets/team/doctor-prostho.png';
+import jrSurgeonImg from '../assets/team/doctor-jr-surgeon.png';
 
 const Services: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -97,12 +99,14 @@ const Services: React.FC = () => {
     {
       name: 'Dr. Dhanya Damodaran',
       role: 'Prosthodontist',
-      qualification: 'BDS, MDS'
+      qualification: 'BDS, MDS',
+      image: prosthoDoctorImg
     },
     {
       name: 'Dr. Reshma Ramachandran',
       role: 'Jr. Dental Surgeon',
-      qualification: 'BDS'
+      qualification: 'BDS',
+      image: jrSurgeonImg
     },
   ];
 
