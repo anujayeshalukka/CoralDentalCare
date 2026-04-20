@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
                   {[
                     { icon: MapPin, title: 'Location', content: CONTACT_INFO.address },
                     { icon: Phone, title: 'Phone', content: CONTACT_INFO.phone, isLink: CONTACT_INFO.phoneLink },
-                    { icon: Mail, title: 'Email', content: CONTACT_INFO.email, isLink: `mailto:${CONTACT_INFO.email}` },
+                    { icon: Mail, title: 'Email', content: CONTACT_INFO.emails, isEmail: true },
                     { icon: Clock, title: 'Working Hours', content: [CONTACT_INFO.workingHours.weekdays, CONTACT_INFO.workingHours.sunday] },
                   ].map((item, idx) => (
                     <motion.div 
@@ -146,7 +146,13 @@ const Contact: React.FC = () => {
                       <div>
                         <h4 className="text-lg font-bold mb-2 text-text-main">{item.title}</h4>
                         {Array.isArray(item.content) ? (
-                          item.content.map((line, lIdx) => <p key={lIdx} className="text-text-muted text-sm leading-relaxed">{line}</p>)
+                          item.content.map((line, lIdx) => (
+                            item.isEmail ? (
+                              <a key={lIdx} href={`mailto:${line}`} className="text-text-muted hover:text-primary transition-colors block text-sm leading-relaxed">{line}</a>
+                            ) : (
+                              <p key={lIdx} className="text-text-muted text-sm leading-relaxed">{line}</p>
+                            )
+                          ))
                         ) : item.isLink ? (
                           <a href={item.isLink} className="text-text-muted hover:text-primary transition-colors block text-sm leading-relaxed">{item.content}</a>
                         ) : (

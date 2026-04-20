@@ -77,13 +77,21 @@ const FAQ: React.FC = () => {
             {[
               { icon: Phone, title: 'Call Us', desc: 'Speak directly with our front desk.', contact: CONTACT_INFO.phone, link: CONTACT_INFO.phoneLink },
               { icon: MessageSquare, title: 'WhatsApp', desc: 'Quick chat for easy inquiries.', contact: 'Chat Now', link: getWhatsAppLink() },
-              { icon: Mail, title: 'Email Us', desc: 'Send us your detailed questions.', contact: CONTACT_INFO.email, link: `mailto:${CONTACT_INFO.email}` },
+              { icon: Mail, title: 'Email Us', desc: 'Send us your detailed questions.', contact: CONTACT_INFO.emails },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-10 rounded-3xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group">
                 <item.icon size={44} className="text-primary mx-auto mb-6 group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-bold mb-2 text-text-main group-hover:text-primary transition-colors">{item.title}</h4>
                 <p className="text-sm text-text-muted mb-6 leading-relaxed text-[15px]">{item.desc}</p>
-                <a href={item.link} className="inline-block text-lg font-bold text-text-main hover:text-primary transition-colors border-b-2 border-primary-light hover:border-primary pb-0.5">{item.contact}</a>
+                {Array.isArray(item.contact) ? (
+                  <div className="flex flex-col gap-2">
+                    {item.contact.map((email, eIdx) => (
+                      <a key={eIdx} href={`mailto:${email}`} className="inline-block text-lg font-bold text-text-main hover:text-primary transition-colors border-b-2 border-primary-light hover:border-primary pb-0.5">{email}</a>
+                    ))}
+                  </div>
+                ) : (
+                  <a href={item.link} className="inline-block text-lg font-bold text-text-main hover:text-primary transition-colors border-b-2 border-primary-light hover:border-primary pb-0.5">{item.contact}</a>
+                )}
               </div>
             ))}
           </div>

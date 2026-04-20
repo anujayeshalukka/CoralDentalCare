@@ -1,5 +1,6 @@
 export const CONTACT_INFO = {
-  email: 'info@coraldental.com',
+  emails: ['info@coraldental.com', 'coraldentalcare1@gmail.com'],
+  email: 'info@coraldental.com', // Keeping for legacy support if needed
   feedbackEmail: 'feedback@coraldental.com',
   submissionEmail: 'coraldentalcare1@gmail.com',
   phone: '+91 97476 12370',

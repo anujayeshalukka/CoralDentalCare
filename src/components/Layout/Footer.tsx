@@ -72,9 +72,13 @@ const Footer: React.FC = () => {
               <Phone size={20} className="text-primary flex-shrink-0" />
               <a href={CONTACT_INFO.phoneLink} className="hover:text-primary">{CONTACT_INFO.phone}</a>
             </li>
-            <li className="flex gap-4 items-center text-text-muted">
-              <Mail size={20} className="text-primary flex-shrink-0" />
-              <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-primary">{CONTACT_INFO.email}</a>
+            <li className="flex gap-4 items-start text-text-muted">
+              <Mail size={20} className="text-primary flex-shrink-0 mt-1" />
+              <div className="flex flex-col gap-1">
+                {CONTACT_INFO.emails.map((email, idx) => (
+                  <a key={idx} href={`mailto:${email}`} className="hover:text-primary">{email}</a>
+                ))}
+              </div>
             </li>
             <li className="flex gap-4 items-center text-text-muted">
               <Clock size={20} className="text-primary flex-shrink-0" />
