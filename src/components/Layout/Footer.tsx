@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
           <ul className="flex flex-col gap-4">
             <li className="flex gap-4 items-start text-text-muted">
               <MapPin size={20} className="text-primary flex-shrink-0" />
-              <span>Above State Bank of India,<br />Pareppadan Towers, Puliyanam.<br />Kerala – 683572</span>
+              <span>Above State Bank of India,<br />Pareppadan Towers, Puliyanam, Angamaly, Ernakulam.<br />Kerala – 683572</span>
             </li>
             <li className="flex gap-4 items-center text-text-muted">
               <Phone size={20} className="text-primary flex-shrink-0" />
