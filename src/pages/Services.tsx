@@ -12,7 +12,7 @@ import orthoDoctorImg from '../assets/team/doctor-ortho.jpg';
 import implantDoctorImg from '../assets/team/doctor-implat1.jpeg';
 import endoDoctorImg from '../assets/team/doctor-endo.jpg';
 import maxilloDoctorImg from '../assets/team/doctor-maxillo.jpg';
-import prosthoDoctorImg from '../assets/team/doctor-prostho.png';
+import prosthoDoctorImg from '../assets/team/doctor-prostho.jpeg';
 import jrSurgeonImg from '../assets/team/doctor-jr-surgeon.jpg';
 
 const Services: React.FC = () => {
@@ -26,39 +26,39 @@ const Services: React.FC = () => {
     }
   };
   const allServices = [
-    { 
-      title: 'General Dentistry', 
-      icon: Stethoscope, 
+    {
+      title: 'General Dentistry',
+      icon: Stethoscope,
       description: 'Comprehensive dental exams, cleanings, and digital X-rays to maintain your oral health.',
       features: ['Regular Checkups', 'Professional Cleaning', 'Oral Cancer Screening', 'Fillings']
     },
-    { 
-      title: 'Root Canal Treatment', 
-      icon: HeartPulse, 
+    {
+      title: 'Root Canal Treatment',
+      icon: HeartPulse,
       description: 'Advanced endodontic therapy to save severely damaged or infected teeth with minimal discomfort.',
       features: ['Pain Management', 'Single Visit RTC', 'Infection Control', 'Post & Core']
     },
-    { 
-      title: 'Orthodontics', 
-      icon: JawIcon, 
+    {
+      title: 'Orthodontics',
+      icon: JawIcon,
       description: 'Modern solutions for misaligned teeth, including traditional braces and clear aligners.',
       features: ['Metal Braces', 'Ceramic Braces', 'Invisalign', 'Retainers']
     },
-    { 
-      title: 'Pediatric Dentistry', 
-      icon: Baby, 
+    {
+      title: 'Pediatric Dentistry',
+      icon: Baby,
       description: 'Specialized and gentle dental care designed to make children feel safe and comfortable.',
       features: ['Child Prophylaxis', 'Fluoride Treatment', 'Sealants', 'Dental Education']
     },
-    { 
-      title: 'Cosmetic Dentistry', 
-      icon: Smile, 
+    {
+      title: 'Cosmetic Dentistry',
+      icon: Smile,
       description: 'Enhance your smile with our range of aesthetic treatments tailored to your desires.',
       features: ['Teeth Whitening', 'Veneers', 'Bonding', 'Smile Makeover']
     },
-    { 
-      title: 'Dental Implants', 
-      icon: Anchor, 
+    {
+      title: 'Dental Implants',
+      icon: Anchor,
       description: 'Long-lasting and stable tooth replacement surgery that looks and feels like natural teeth.',
       features: ['Single Implants', 'Full Mouth Bridge', 'Bone Grafting', 'Sinus Lift']
     },
@@ -112,13 +112,13 @@ const Services: React.FC = () => {
 
   return (
     <div>
-      <SEO 
-        title="Our Specialized Dental Services" 
-        description="From painless root canals and orthodontics to dental implants and pediatric care. Explore our comprehensive range of specialized dental treatments." 
+      <SEO
+        title="Our Specialized Dental Services"
+        description="From painless root canals and orthodontics to dental implants and pediatric care. Explore our comprehensive range of specialized dental treatments."
       />
-      <PageHero 
-        title="Comprehensive" 
-        highlight="Dental Services" 
+      <PageHero
+        title="Comprehensive"
+        highlight="Dental Services"
         subtitle="We provide a wide range of specialized dental treatments using modern technology and a patient-first approach."
         backgroundImage={servicesBg}
       />
@@ -127,8 +127,8 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {allServices.map((service, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 className="group flex flex-col sm:flex-row gap-8 md:p-10 p-6 rounded-3xl bg-white border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 hover:border-primary-light"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ const Services: React.FC = () => {
             </h2>
             <p className="text-lg text-text-muted">We combine expertise with a gentle touch to ensure the best outcomes for our patients.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               { title: 'Pain-Free Focus', desc: 'We use advanced techniques and sedation options to make your visit as comfortable as possible.' },
@@ -196,13 +196,13 @@ const Services: React.FC = () => {
           </div>
 
           <div className="relative group/slider">
-            <div 
+            <div
               ref={scrollRef}
               className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory gap-6 pb-12 pt-4 px-4 -mx-4"
             >
               {team.map((member, idx) => (
-                <motion.div 
-                  key={idx} 
+                <motion.div
+                  key={idx}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -211,10 +211,10 @@ const Services: React.FC = () => {
                 >
                   <div className="aspect-[1/1] relative overflow-hidden bg-brand-off">
                     {member.image ? (
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" 
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-primary/5">
@@ -248,17 +248,17 @@ const Services: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Navigation Buttons */}
             <div className="absolute top-1/2 -translate-y-[60px] left-0 right-0 flex justify-between pointer-events-none px-2 z-10">
-              <button 
+              <button
                 onClick={() => scroll('left')}
                 className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 shadow-lg flex items-center justify-center text-text-main pointer-events-auto hover:bg-primary hover:text-white transition-all transform hover:scale-110 -translate-x-4 opacity-0 group-hover/slider:opacity-100 group-hover/slider:translate-x-0"
                 title="Previous"
               >
                 <ChevronLeft size={20} />
               </button>
-              <button 
+              <button
                 onClick={() => scroll('right')}
                 className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 shadow-lg flex items-center justify-center text-text-main pointer-events-auto hover:bg-primary hover:text-white transition-all transform hover:scale-110 translate-x-4 opacity-0 group-hover/slider:opacity-100 group-hover/slider:translate-x-0"
                 title="Next"

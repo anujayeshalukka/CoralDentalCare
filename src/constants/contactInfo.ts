@@ -5,7 +5,7 @@ export const CONTACT_INFO = {
   submissionEmail: 'coraldentalcare1@gmail.com',
   phone: '+91 97476 12370',
   phoneLink: 'tel:+919747612370',
-  address: 'Above State Bank of India, Pareppadan Towers, Puliyanam, Kerala – 683572',
+  address: 'Above State Bank of India, Pareppadan Towers, Puliyanam, Angamaly, Ernakulam, Kerala – 683572',
   workingHours: {
     weekdays: 'Mon - Sat: 9:30 AM - 6:00 PM',
     sunday: 'Sunday: Emergency Only'

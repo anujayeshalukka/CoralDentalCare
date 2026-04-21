@@ -10,7 +10,7 @@ import orthoDoctorImg from '../assets/team/doctor-ortho.jpg';
 import implantDoctorImg from '../assets/team/doctor-implat1.jpeg';
 import endoDoctorImg from '../assets/team/doctor-endo.jpg';
 import maxilloDoctorImg from '../assets/team/doctor-maxillo.jpg';
-import prosthoDoctorImg from '../assets/team/doctor-prostho.png';
+import prosthoDoctorImg from '../assets/team/doctor-prostho.jpeg';
 import jrSurgeonImg from '../assets/team/doctor-jr-surgeon.jpg';
 
 const About: React.FC = () => {
@@ -62,9 +62,9 @@ const About: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
-      <SEO 
-        title="About Dr. Saranya S & Coral Dental" 
-        description="Learn about the vision of Dr. Saranya S and our commitment to clinical excellence at Coral Dental Care Kerala. Over 15 years of surgical expertise." 
+      <SEO
+        title="About Dr. Saranya S & Coral Dental"
+        description="Learn about the vision of Dr. Saranya S and our commitment to clinical excellence at Coral Dental Care Kerala. Over 15 years of surgical expertise."
       />
       <PageHero
         title="Leadership at"
