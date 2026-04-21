@@ -14,7 +14,7 @@ const FloatingCTA: React.FC = () => {
   const ctaClasses = "rounded-full flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 relative group cursor-pointer border-none";
 
   return (
-    <div className="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 flex flex-col gap-3 lg:gap-4 z-[1200] floating-cta-container">
+    <div className="fixed bottom-24 right-6 lg:bottom-8 lg:right-8 flex flex-col gap-3 lg:gap-4 z-[1200] floating-cta-container">
       <button 
         className={`${ctaClasses} w-12 h-12 lg:w-14 lg:h-14 bg-primary text-white`} 
         onClick={askDentist}

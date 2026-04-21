@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Calendar, Mail, MapPin } from 'lucide-react';
-import AppointmentModal from '../modals/AppointmentModal';
 import logo from '../../assets/logo.png';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onOpenAppointment: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onOpenAppointment }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -74,7 +76,7 @@ const Header: React.FC = () => {
               </Link>
             ))}
             <button 
-              onClick={() => setIsModalOpen(true)}
+              onClick={onOpenAppointment}
               className="bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 hover:bg-primary-dark transition-all transform hover:-translate-y-0.5 shadow-sm hover:shadow-md"
             >
               <Calendar size={18} />
@@ -140,7 +142,7 @@ const Header: React.FC = () => {
               className="w-full bg-primary text-white py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-primary/20"
               onClick={() => {
                 setIsOpen(false);
-                setIsModalOpen(true);
+                onOpenAppointment();
               }}
             >
               <Calendar size={24} />
@@ -149,8 +151,6 @@ const Header: React.FC = () => {
           </div>
         </nav>
       </div>
-
-      <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

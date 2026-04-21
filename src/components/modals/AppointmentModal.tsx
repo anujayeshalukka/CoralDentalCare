@@ -55,9 +55,10 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
 
       const data = await response.json();
 
-      if (data.success === "true") {
+      if (data.success === "true" || data.success === true) {
         setIsSubmitted(true);
       } else {
+        console.error('FormSubmit Error:', data);
         alert('Something went wrong. Please try again or call us directly.');
       }
     } catch (error) {
@@ -196,14 +197,15 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
               </div>
             </div>
 
-            <Button 
-              type="submit" 
-              size="full" 
-              className="mt-2"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Sending Request...' : 'Confirm Appointment'}
-            </Button>
+            <div className="mt-2 pb-6">
+              <Button 
+                type="submit" 
+                size="full" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending Request...' : 'Confirm Appointment'}
+              </Button>
+            </div>
           </form>
         )}
       </div>
