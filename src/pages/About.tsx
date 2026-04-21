@@ -49,7 +49,7 @@ const About: React.FC = () => {
     {
       name: 'Dr. Dhanya Damodaran',
       role: 'Prosthodontist',
-      qualification: 'BDS, MDS',
+      qualification: 'BDS, MDS Prosthodontics',
       image: prosthoDoctorImg
     },
     {
