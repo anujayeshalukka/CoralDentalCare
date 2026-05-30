@@ -33,38 +33,23 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formDataToSubmit = {
-      name: formData.name,
-      email: formData.email,
-      phone: `${selectedCountry.dialCode} ${formData.phone}`,
-      service: formData.service,
-      date: formData.date,
-      message: formData.message,
-      _subject: `New Appointment Request from ${formData.name}`,
-      _template: 'table'
-    };
+    const subject = `New Appointment Request from ${formData.name}`;
+    const body = `Full Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${selectedCountry.dialCode} ${formData.phone}
+Service: ${formData.service}
+Preferred Date: ${formData.date}
+
+Additional Notes:
+${formData.message}`;
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_INFO.submissionEmail}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formDataToSubmit)
-      });
-
-      const data = await response.json();
-
-      if (data.success === "true") {
-        setIsSubmitted(true);
-        window.scrollTo({ top: 300, behavior: 'smooth' });
-      } else {
-        alert('Something went wrong. Please try again or call us directly.');
-      }
+      window.location.href = `mailto:${CONTACT_INFO.submissionEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setIsSubmitted(true);
+      window.scrollTo({ top: 300, behavior: 'smooth' });
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('There was an error connecting to the server. Please check your internet connection.');
+      alert('Something went wrong. Please try again or call us directly.');
     } finally {
       setIsSubmitting(false);
     }

@@ -92,15 +92,15 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
             <div className="text-center mb-2">
               <p className="text-text-muted text-left">Fill out the form below and we'll get back to you immediately.</p>
             </div>
-            
+
             <div className="grid grid-cols-1 gap-5">
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-bold text-text-main flex items-center gap-2">
                   <User size={16} className="text-primary" />
                   Full Name
                 </label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -115,8 +115,8 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   <Mail size={16} className="text-primary" />
                   Email
                 </label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -132,12 +132,12 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   Phone Number
                 </label>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <CountrySelector 
-                    selectedCountry={selectedCountry} 
-                    onSelect={setSelectedCountry} 
+                  <CountrySelector
+                    selectedCountry={selectedCountry}
+                    onSelect={setSelectedCountry}
                   />
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
@@ -151,7 +151,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-bold text-text-main">Service</label>
-                  <select 
+                  <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
@@ -170,8 +170,8 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                     <Calendar size={16} className="text-primary" />
                     Date
                   </label>
-                  <input 
-                    type="date" 
+                  <input
+                    type="date"
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
@@ -186,7 +186,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   <MessageSquare size={16} className="text-primary" />
                   Message (Optional)
                 </label>
-                <textarea 
+                <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -198,9 +198,9 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
             </div>
 
             <div className="mt-2 pb-6">
-              <Button 
-                type="submit" 
-                size="full" 
+              <Button
+                type="submit"
+                size="full"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending Request...' : 'Confirm Appointment'}
